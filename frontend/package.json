@@ -1,0 +1,45 @@
+{
+  "name": "robust-frontend",
+  "version": "1.0.0",
+  "author": "Victor Zhuravlev",
+  "license": "GPL version 3",
+  "scripts": {
+    "lint": "npm run lint:code && npm run lint:types",
+    "lint:code": "npm run lint:code:styles && npm run lint:code:source",
+    "lint:code:styles": "stylelint './src/**/*.{ts,tsx}'",
+    "lint:code:source": "eslint './src/**/*.{ts,tsx}'",
+    "lint:types": "npm run lint:types:check && npm run lint:types:coverage",
+    "lint:types:check": "tsc --noEmit",
+    "lint:types:coverage": "type-coverage --ignore-catch --at-least 99 --project src",
+    "prettier": "prettier --write 'src/**/*.{ts,tsx}'"
+  },
+  "dependencies": {
+    "linaria": "2.0.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
+    "@types/react": "16.9.56",
+    "@types/react-dom": "16.9.9",
+    "@typescript-eslint/eslint-plugin": "4.8.1",
+    "@typescript-eslint/parser": "4.8.1",
+    "eslint": "7.13.0",
+    "eslint-config-airbnb-typescript": "12.0.0",
+    "eslint-config-prettier": "6.15.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "husky": "4.3.0",
+    "lint-staged": "10.5.1",
+    "prettier": "2.1.2",
+    "stylelint": "13.8.0",
+    "stylelint-config-recess-order": "2.3.0",
+    "stylelint-config-standard": "20.0.0",
+    "stylelint-order": "4.1.0",
+    "type-coverage": "2.14.2",
+    "typescript": "4.0.5"
+  }
+}
