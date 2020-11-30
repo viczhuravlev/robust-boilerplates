@@ -25,6 +25,12 @@ node_modules/
 .vscode
 .idea
 
+#tools
+.linaria-cache
+package-lock.json
+
+# build
+build
+
 # other
 .DS_Store
-package-lock.json
