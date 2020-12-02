@@ -97,6 +97,7 @@ module.exports = (env, options) => {
               removeScriptTypeAttributes: true,
               removeStyleLinkTypeAttributes: true,
             },
+        title: 'Robust React Application',
         template: `./src/static/index.${isDevelopment ? 'dev' : 'production'}.html`,
       }),
       new MiniCssExtractPlugin({
