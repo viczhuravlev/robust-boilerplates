@@ -4,7 +4,8 @@ import 'regenerator-runtime';
 import React from 'react';
 import { render } from 'react-dom';
 
-import './GlobalStyles';
+import './globalStyles';
+
 import App from './App';
 
 render(<App />, document.getElementById('app'));

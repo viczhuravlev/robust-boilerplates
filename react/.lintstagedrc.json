@@ -3,8 +3,7 @@
     "eslint",
     "stylelint",
     "prettier --write",
-    "type-coverage --ignore-catch --at-least 99",
-    "jest --findRelatedTests"
+    "type-coverage --ignore-catch --at-least 99"
   ],
   "*.mdx": [
     "prettier --write"
