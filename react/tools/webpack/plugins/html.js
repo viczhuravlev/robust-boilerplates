@@ -4,7 +4,7 @@
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 
-const { templatesPath } = require('../../config/paths');
+const { sourcePath, templatesPath } = require('../../config/paths');
 const { isProduction, webpackEnv } = require('../../config/env');
 
 const minifyConfig = {
@@ -24,5 +24,6 @@ const minifyConfig = {
 module.exports = new HtmlPlugin({
   title: 'Robust React Application',
   minify: isProduction ? minifyConfig : false,
+  favicon: path.resolve(sourcePath, './static/images/favicon.png'),
   template: path.resolve(templatesPath, `./index.${webpackEnv.NODE_ENV}.html`),
 });
