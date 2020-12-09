@@ -1,6 +1,6 @@
 {
   "*.{ts,tsx}": [
-    "eslint",
+    "eslint --config ./tools/eslint/eslint.config.js",
     "stylelint --config ./tools/stylelint/stylelint.config.js",
     "prettier --write",
     "type-coverage --ignore-catch --at-least 99"
