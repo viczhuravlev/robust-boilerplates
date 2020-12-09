@@ -7075,6 +7075,15 @@ stylelint-order@4.1.0, stylelint-order@4.1.x:
     postcss "^7.0.31"
     postcss-sorting "^5.0.1"
 
+"stylelint-tool@file:./tools/stylelint":
+  version "1.0.0"
+  dependencies:
+    style-loader "2.0.0"
+    stylelint "13.8.0"
+    stylelint-config-recess-order "2.3.0"
+    stylelint-config-standard "20.0.0"
+    stylelint-order "4.1.0"
+
 stylelint@13.8.0:
   version "13.8.0"
   resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-13.8.0.tgz#446765dbe25e3617f819a0165956faf2563ddc23"

@@ -1,0 +1,13 @@
+{
+  "name": "stylelint-tool",
+  "version": "1.0.0",
+  "description": "All stylelint settings are here",
+  "author": "Victor Zhuravlev <vzhuravlev15@gmail.com>",
+  "dependencies": {
+    "style-loader": "2.0.0",
+    "stylelint": "13.8.0",
+    "stylelint-config-recess-order": "2.3.0",
+    "stylelint-config-standard": "20.0.0",
+    "stylelint-order": "4.1.0"
+  }
+}
