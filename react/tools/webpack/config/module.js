@@ -1,38 +1,18 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const { isProduction } = require('../../config/env');
+const loaderCSS = require('../loaders/css');
+const loaderStyle = require('../loaders/style');
+const loaderBabel = require('../loaders/babel');
+const loaderLinaria = require('../loaders/linaria');
 
 module.exports = {
   rules: [
     {
       test: /\.(js(x)?|ts(x)?)$/,
       exclude: /node_modules/,
-      use: [
-        {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-          },
-        },
-        {
-          loader: 'linaria/loader',
-          options: {
-            sourceMap: !isProduction,
-          },
-        },
-      ],
+      use: [loaderBabel, loaderLinaria],
     },
     {
       test: /\.css$/,
-      use: [
-        isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: !isProduction,
-          },
-        },
-      ],
+      use: [loaderStyle, loaderCSS],
     },
     {
       test: /\.woff2$/,
