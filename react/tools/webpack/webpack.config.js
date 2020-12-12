@@ -2,7 +2,6 @@ const { isProduction } = require('../config/env');
 
 module.exports = {
   mode: isProduction ? 'production' : 'development',
-  target: 'web',
   devtool: require('./config/devtool'),
   entry: require('./config/entry'),
   output: require('./config/output'),
