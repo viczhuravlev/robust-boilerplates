@@ -14,9 +14,6 @@
 
     "moduleResolution": "node",
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
     "typeRoots": ["node_modules/@types", "@types"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
