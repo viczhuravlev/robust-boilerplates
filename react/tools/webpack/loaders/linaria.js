@@ -4,12 +4,12 @@
 
 const { isProduction } = require('../../config/env');
 
-const babelConfig = require('../babel.config.json');
+const babelOptions = require('../babel.config.json');
 
 module.exports = {
-  loader: 'linaria/loader',
+  loader: '@linaria/webpack-loader',
   options: {
     sourceMap: !isProduction,
-    babelOptions: babelConfig,
+    babelOptions,
   },
 };

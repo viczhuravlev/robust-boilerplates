@@ -11,7 +11,7 @@
     ],
     "@babel/preset-react",
     "@babel/preset-typescript",
-    "linaria/babel"
+    "@linaria"
   ],
   "plugins": [
     "react-hot-loader/babel",
