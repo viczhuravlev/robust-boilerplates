@@ -5,10 +5,10 @@ const { rootPath } = require('./paths');
 const result = require('dotenv').config({ path: path.resolve(rootPath, '.env') });
 
 if (result.error) {
-  throw new Error(`[Couldn't find .env file]: ${result.error}️`);
+  throw new Error(`🔥 🔥 🔥 [Couldn't find .env file]: ${result.error.message}️`);
 }
 
-const NODE_ENV = process.env.NODE_ENV;
+const { NODE_ENV } = process.env;
 
 /**
  * Application-only variables
@@ -60,4 +60,5 @@ module.exports = {
   appEnv,
   webpackEnv,
   isProduction: NODE_ENV === 'production',
+  isDevelopment: NODE_ENV !== 'production',
 };
