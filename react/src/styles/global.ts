@@ -1,15 +1,24 @@
-import { css } from 'linaria';
+import { css } from '@linaria/core';
 
-const globalStyles = css`
+import { light, dark } from './theme';
+
+const global = css`
   /* stylelint-disable */
   :global() {
     /* stylelint-enable */
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
     :root {
-      --font-color: #fff;
-      --font-color-secondary: #b0b0b1;
-      --background-color: #333f52;
+      /** Theme */
+      --font-color: ${dark['--font-color']};
+      --font-color-secondary: ${dark['--font-color-secondary']};
+      --background-color: ${dark['--background-color']};
+    }
+
+    [data-theme='light'] {
+      --font-color: ${light['--font-color']};
+      --font-color-secondary: ${light['--font-color-secondary']};
+      --background-color: ${light['--background-color']};
     }
 
     * {
@@ -33,6 +42,8 @@ const globalStyles = css`
       color: var(--font-color);
 
       background-color: var(--background-color);
+
+      transition: color 0.3s, background-color 0.3s;
 
       -webkit-text-size-adjust: 100%;
       -webkit-font-smoothing: antialiased;
@@ -65,4 +76,4 @@ const globalStyles = css`
   }
 `;
 
-export default globalStyles;
+export default global;
