@@ -2,6 +2,25 @@
 
 # 🔵 Robust React Application
 
+## Advantages
+
+- Zero configuration
+- Powerful theme customization
+- Ready advanced tool setting
+
+##### Features project:
+
+- Type safety with **typescript**
+- Write **CSS in JS**, but get CSS files during build
+- **Development** and **production** build
+- Typescript **type checker** on a separate process
+- Definition of **environment variables** using env file
+- **Source map**
+- **Polyfills** and their customization
+- **Hot Module Replacement**
+- **Visualize size** of webpack output files with an interactive zoomable treemap
+- Checking **code quality**
+
 ## Browser Support:
 
 The polyfills are customized, and you can change the settings to suit your needs.
@@ -72,17 +91,17 @@ If the project doesn't need polyfills, you will have to change the `preset-env` 
 
 - [TypeScript](https://www.typescriptlang.org) 4 version
 - [React](https://reactjs.org) 17 version
-- [Linaria](https://linaria.now.sh/) 2 version (doesn't support IE)
+- [Linaria](https://linaria.now.sh/) 3 version (doesn't support IE)
 
-### Tools
+##### Bundler
 
-- [Webpack](https://webpack.js.org/) 5 version
-- [Babel](https://babeljs.io/) 7 version
-- [Eslint](https://eslint.org/)
-- [Stylelint](https://stylelint.io/)
-- [Prettier](https://prettier.io/)
-- [Husky](https://typicode.github.io/husky/#/)
-- [Commitlint](https://github.com/conventional-changelog/commitlint)
+[Webpack](https://webpack.js.org/) 5 version and [Babel](https://babeljs.io/) 7 version is used to build the project.
+
+##### Linters
+
+- [Eslint](https://eslint.org/) and [Stylelint](https://stylelint.io/) protect code quality
+- [Prettier](https://prettier.io/) is responsible for the beauty of the code
+- Сhecking commits with means [Commitlint](https://github.com/conventional-changelog/commitlint) and [Husky](https://typicode.github.io/husky/#/)
 
 ## License
 
