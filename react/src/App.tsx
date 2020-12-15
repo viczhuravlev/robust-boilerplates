@@ -7,11 +7,19 @@ function Loader() {
   return <>Loading ...</>;
 }
 
+function Router() {
+  return (
+    <>
+      <MainPage />
+    </>
+  );
+}
+
 function App() {
   return (
     <StrictMode>
       <Suspense fallback={<Loader />}>
-        <MainPage />
+        <Router />
       </Suspense>
     </StrictMode>
   );

@@ -1,7 +1,17 @@
 import React from 'react';
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
+
+import ThemeSwitcherOrigin from '@/components/ThemeSwitcher';
+
+const ThemeSwitcher = styled(ThemeSwitcherOrigin)`
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+`;
 
 const Container = styled.div`
+  position: relative;
+
   display: flex;
 
   align-items: center;
@@ -48,6 +58,7 @@ const Partition = styled.div`
 function MainPage() {
   return (
     <Container>
+      <ThemeSwitcher />
       <Content>
         <TextContainer>
           <Title>

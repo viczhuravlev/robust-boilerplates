@@ -31,6 +31,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [2, { args: 'after-used', argsIgnorePattern: '^_' }],
     'no-unused-vars': [2, { args: 'after-used', argsIgnorePattern: '^_' }],
     'react/jsx-one-expression-per-line': 'warn',
+    'react-hooks/exhaustive-deps': 'warn',
     'import/prefer-default-export': 'off',
     'react/jsx-props-no-spreading': 'off',
     '@typescript-eslint/indent': 'off',

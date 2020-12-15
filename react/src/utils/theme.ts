@@ -5,7 +5,7 @@ export enum ThemeMode {
   dark = 'dark',
 }
 
-export function getBody(): HTMLElement {
+function getBody(): HTMLElement {
   return document.body;
 }
 
@@ -13,10 +13,34 @@ function setBodyAttribute(name: string, value: string) {
   getBody().setAttribute(name, value);
 }
 
-export function turnOnLightTheme() {
+function turnOnLightTheme() {
   setBodyAttribute(THEME_ATTRIBUTE_NAME, ThemeMode.light);
 }
 
-export function turnOnDarkTheme() {
+function turnOnDarkTheme() {
   setBodyAttribute(THEME_ATTRIBUTE_NAME, ThemeMode.dark);
+}
+
+export function getCurrentThemeMode(): ThemeMode {
+  const theme = getBody().getAttribute('data-theme');
+
+  return theme === ThemeMode.light ? ThemeMode.light : ThemeMode.dark;
+}
+
+function isLightMode() {
+  const currentThemeMode = getCurrentThemeMode();
+
+  return currentThemeMode === ThemeMode.light;
+}
+
+export function switchOnTheme(): ThemeMode {
+  if (isLightMode()) {
+    turnOnDarkTheme();
+
+    return ThemeMode.dark;
+  }
+
+  turnOnLightTheme();
+
+  return ThemeMode.light;
 }
