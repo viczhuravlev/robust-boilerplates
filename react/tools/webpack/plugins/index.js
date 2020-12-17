@@ -9,6 +9,7 @@ const pluginCompression = require('./compression');
 const pluginForkTsChecker = require('./forkTsChecker');
 const pluginMiniCssExtract = require('./miniCssExtract');
 const pluginCircularDependency = require('./circularDependency');
+const pluginDuplicatePackageChecker = require('./duplicatePackageChecker');
 
 module.exports = [
   isProduction && pluginClean,
@@ -19,5 +20,6 @@ module.exports = [
   !isProduction && pluginHot,
   !isProduction && pluginForkTsChecker,
   !isProduction && pluginCircularDependency,
+  !isProduction && pluginDuplicatePackageChecker,
   webpackEnv.BUNDLE_ANALYZER === 'true' && pluginAnalyzer,
 ].filter(Boolean);
