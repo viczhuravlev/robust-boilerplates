@@ -4,22 +4,24 @@
 
 ## Advantages
 
-- Zero configuration
-- Powerful theme customization
-- Ready advanced tool setting
-
-##### Features project:
-
+- **Zero configuration**
 - Type safety with **typescript**
 - Write **CSS in JS**, but get CSS files during build
+- Powerful **theme** customization
+
+#### Features project:
+
 - **Development** and **production** build
-- Typescript **type checker** on a separate process
 - Definition of **environment variables** using env file
-- **Source map**
+- Typescript **type checker** on a separate processa
+- Support **source map**
 - **Polyfills** and their customization
 - **Hot Module Replacement**
+- Prepare of files with **Brotli compression**
+- Auto detect **circular dependencies**
+- Warn about **duplicate** versions of the same **package**
 - **Visualize size** of webpack output files with an interactive zoomable treemap
-- Checking **code quality**
+- Automatic **code quality** check on commit
 
 ## Browser Support:
 
@@ -93,11 +95,11 @@ If the project doesn't need polyfills, you will have to change the `preset-env` 
 - [React](https://reactjs.org) 17 version
 - [Linaria](https://linaria.now.sh/) 3 version (doesn't support IE)
 
-##### Bundler
+#### Bundler
 
 [Webpack](https://webpack.js.org/) 5 version and [Babel](https://babeljs.io/) 7 version is used to build the project.
 
-##### Linters
+#### Linters
 
 - [Eslint](https://eslint.org/) and [Stylelint](https://stylelint.io/) protect code quality
 - [Prettier](https://prettier.io/) is responsible for the beauty of the code
