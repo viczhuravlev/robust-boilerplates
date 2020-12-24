@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
 import * as Theme from '@/utils/theme';
-import { ThemeMode } from '@/utils/theme';
 
 import * as T from './ThemeSwitcher.types';
 import * as S from './ThemeSwitcher.styles';
@@ -17,7 +16,7 @@ function ThemeSwitcher(props: T.ThemeSwitcherProps) {
     setTheme(currentTheme);
   }, [theme]);
 
-  const isLight = theme === ThemeMode.light;
+  const isLight = theme === Theme.ThemeMode.light;
 
   return (
     <S.SwitchButton
