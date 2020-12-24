@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import './styles/global';
+import '@core/styles/global';
 
 import App from './App';
 
