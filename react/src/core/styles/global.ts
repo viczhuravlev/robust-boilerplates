@@ -10,12 +10,14 @@ const global = css`
 
     :root {
       /** Theme */
+      --primary-color: ${dark['--primary-color']};
       --font-color: ${dark['--font-color']};
       --font-color-secondary: ${dark['--font-color-secondary']};
       --background-color: ${dark['--background-color']};
     }
 
     [data-theme='light'] {
+      --primary-color: ${light['--primary-color']};
       --font-color: ${light['--font-color']};
       --font-color-secondary: ${light['--font-color-secondary']};
       --background-color: ${light['--background-color']};

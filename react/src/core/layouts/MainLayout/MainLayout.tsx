@@ -25,7 +25,7 @@ function MainLayout(props: T.MainLayoutProps) {
           location.pathname !== '/' && (
             <S.RouterLink to="/">
               <span role="img" aria-label="Left Arrow">
-                ⬅
+                ⬅️
               </span>
             </S.RouterLink>
           ),

@@ -1,4 +1,6 @@
 export type ThemeValues = {
+  '--primary-color': string;
+
   '--font-color': string;
   '--font-color-secondary': string;
 
@@ -8,9 +10,12 @@ export type ThemeValues = {
 const theme = {
   white: '#FFFFFF',
   black: '#000000',
+  'primary-color': '#1991EB',
 };
 
 export const light: ThemeValues = {
+  '--primary-color': theme['primary-color'],
+
   '--font-color': '#333F52',
   '--font-color-secondary': '#B0B0B1',
 
@@ -18,6 +23,8 @@ export const light: ThemeValues = {
 };
 
 export const dark: ThemeValues = {
+  '--primary-color': theme['primary-color'],
+
   '--font-color': theme.white,
   '--font-color-secondary': '#B0B0B1',
 
