@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import RouterLinkOrigin from '@core/components/RouterLink';
+import { Emoji } from '@core/components';
 
 export const Container = styled.div`
   display: flex;
@@ -11,6 +11,6 @@ export const Container = styled.div`
   height: 100%;
 `;
 
-export const RouterLink = styled(RouterLinkOrigin)`
+export const TextLink = styled(Emoji)`
   font-size: 2rem;
 `;

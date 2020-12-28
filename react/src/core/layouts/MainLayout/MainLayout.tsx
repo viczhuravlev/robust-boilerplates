@@ -1,8 +1,9 @@
 import React from 'react';
 import { useLocation } from '@reach/router';
 
-import Navigation from '@core/components/Navigation';
-import ThemeSwitcher from '@core/components/ThemeSwitcher';
+import { Navigation, RouterLink, ThemeSwitcher } from '@core/components';
+
+import { useAuth } from '@domains/auth';
 
 import * as S from './MainLayout.styles';
 import type * as T from './MainLayout.types';
@@ -12,24 +13,27 @@ function MainLayout(props: T.MainLayoutProps) {
 
   const location = useLocation();
 
+  const { isAuthenticated, logout } = useAuth();
+
   return (
     <S.Container>
       <Navigation
         items={[
           <ThemeSwitcher />,
-          <S.RouterLink to="/secret">
-            <span role="img" aria-label="Smiling Face with Sunglasses">
-              😎
-            </span>
-          </S.RouterLink>,
-          location.pathname !== '/' && (
-            <S.RouterLink to="/">
-              <span role="img" aria-label="Left Arrow">
-                ⬅️
-              </span>
-            </S.RouterLink>
+          <RouterLink to="/secret">
+            <S.TextLink label="Smiling Face with Sunglasses">😎</S.TextLink>
+          </RouterLink>,
+          isAuthenticated && (
+            <S.TextLink label="Left Arrow" onClick={logout}>
+              🔄
+            </S.TextLink>
           ),
-        ]}
+          location.pathname !== '/' && (
+            <RouterLink to="/">
+              <S.TextLink label="Left Arrow">⬅️</S.TextLink>
+            </RouterLink>
+          ),
+        ].filter(Boolean)}
       />
       {children}
     </S.Container>

@@ -71,6 +71,10 @@ const global = css`
       word-wrap: break-word;
     }
 
+    a {
+      color: var(--primary-color);
+    }
+
     #app {
       width: 100%;
       height: 100%;

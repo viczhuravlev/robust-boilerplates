@@ -1,1 +1,1 @@
-export { default } from './CenterLayout';
+export { default as CenterLayout } from './CenterLayout';
