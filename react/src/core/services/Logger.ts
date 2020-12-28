@@ -2,7 +2,7 @@
 
 type Message = string | number | Record<string, unknown>;
 
-class Logger {
+export class Logger {
   static info(title: string, message: Message): void {
     console.info('[INFO]', title, message);
   }
@@ -19,5 +19,3 @@ class Logger {
     console.error('[ERROR]', title, message);
   }
 }
-
-export default Logger;

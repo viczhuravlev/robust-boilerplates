@@ -1,4 +1,4 @@
-import Logger from '@/services/Logger';
+import { Logger } from '../Logger';
 
 import * as U from './HttpClient.utils';
 import type * as T from './HttpClient.types';
@@ -47,7 +47,7 @@ class HttpClient implements T.Http {
   private async requestJSON<Response>(
     url: string,
     options: RequestInit = {},
-  ): Promise<T.HttpResponse<Response | Error>> {
+  ): Promise<T.HttpResponse<Response>> {
     try {
       const result = await this.request(url, U.mergeRequestParams(U.defaultOptionsJSON, options));
 
