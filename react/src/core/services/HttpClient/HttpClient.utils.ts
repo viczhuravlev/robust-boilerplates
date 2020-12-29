@@ -1,12 +1,12 @@
 import type * as T from './HttpClient.types';
 
 export const defaultOptions: T.HttpOptions = { headers: {} };
+export const defaultExtraOptions: T.ExtraHttpOptions = {};
 export const defaultOptionsJSON: T.HttpOptions = {
   headers: {
     'Content-Type': 'application/json',
   },
 };
-export const extraDefaultOptions: T.ExtraDefaultHttpOptions = {};
 
 export function getBody(body?: unknown): string | undefined {
   return body ? JSON.stringify(body) : undefined;
@@ -26,17 +26,25 @@ export function mergeRequestParams(
   };
 }
 
-export function getApiResponse<Response>(
-  error: null | Error,
-  response: null | Response,
-): T.HttpResponse<Response> {
-  return error
-    ? {
-        status: 'error',
-        error,
-      }
-    : {
-        status: 'success',
-        response,
-      };
+function isJSON(response: Response): boolean {
+  const contentType = response.headers.get('content-type');
+
+  return contentType ? contentType.includes('application/json') : false;
+}
+
+export async function getResponseResult<Data>(response: Response): Promise<Data> {
+  const result: Data = isJSON(response) ? await response.json() : await response.text();
+
+  return result;
+}
+
+export class ServerError extends Error {
+  readonly info: unknown;
+
+  constructor(message: string, info: unknown) {
+    super(message);
+
+    this.name = 'ServerError';
+    this.info = info;
+  }
 }

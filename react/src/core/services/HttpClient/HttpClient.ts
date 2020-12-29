@@ -1,3 +1,5 @@
+import queryString from 'qs';
+
 import { Logger } from '../Logger';
 
 import * as U from './HttpClient.utils';
@@ -8,7 +10,7 @@ class HttpClient implements T.Http {
 
   readonly headers: T.HttpHeaders;
 
-  readonly options: T.DefaultHttpOptions;
+  readonly options: T.HttpOptions;
 
   constructor(options: Partial<T.Http> = {}) {
     this.baseURL = options.baseURL || HttpClient.getUrl('/');
@@ -16,59 +18,69 @@ class HttpClient implements T.Http {
     this.options = options.options || U.defaultOptions;
   }
 
-  static getUrl(url: string) {
-    return `${process.env.SERVER_URL}api${url}`;
+  static getUrlWithQuery(url: string, query?: T.HttpQuery): string {
+    if (!query) {
+      return url;
+    }
+
+    const formattedQuery = queryString.stringify(query, {
+      skipNulls: true,
+      arrayFormat: 'repeat',
+    });
+
+    return `${url}?${formattedQuery}`;
   }
 
-  private async request(url: string, options: RequestInit = {}): Promise<Response> {
+  static getUrl(url: string, query?: T.HttpQuery): string {
+    const fullUrl = `${process.env.SERVER_URL}api${url}`;
+
+    return HttpClient.getUrlWithQuery(fullUrl, query);
+  }
+
+  async request<Data>(url: string, options: T.HttpOptions): Promise<Data> {
+    const { query, ...requestOptions } = options;
+
     try {
       const response = await fetch(
-        this.baseURL + url,
+        HttpClient.getUrlWithQuery(this.baseURL + url, query),
         U.mergeRequestParams(
           {
+            ...U.defaultOptions,
             ...this.options,
             headers: {
+              ...U.defaultOptions.headers,
               ...this.options.headers,
               ...this.headers,
             },
           },
-          options,
+          requestOptions,
         ),
       );
 
-      return response;
+      /**
+       * error
+       */
+      if (!response.ok) {
+        const serverError = await U.getResponseResult<unknown>(response);
+
+        throw new U.ServerError(response.statusText, serverError);
+      }
+
+      /**
+       * success
+       */
+      const result = await U.getResponseResult<Data>(response);
+
+      return result;
     } catch (error) {
-      Logger.error('fetch', error.message);
+      Logger.error(`An error occurred while sending data: ${error}`);
 
       throw error;
     }
   }
 
-  private async requestJSON<Response>(
-    url: string,
-    options: RequestInit = {},
-  ): Promise<T.HttpResponse<Response>> {
-    try {
-      const result = await this.request(url, U.mergeRequestParams(U.defaultOptionsJSON, options));
-
-      /**
-       * Error
-       */
-      if (!result.ok) {
-        const serverError: Error = await result.json();
-
-        return U.getApiResponse(serverError, null);
-      }
-
-      /**
-       * Success
-       */
-      const response: Response = await result.json();
-
-      return U.getApiResponse(null, response);
-    } catch (error) {
-      return U.getApiResponse<Response>(error, null);
-    }
+  async requestJSON<Data>(url: string, options: T.HttpOptions): Promise<Data> {
+    return this.request<Data>(url, U.mergeRequestParams(U.defaultOptionsJSON, options));
   }
 
   setHeader(key: string, value: string) {
@@ -91,41 +103,49 @@ class HttpClient implements T.Http {
     return this;
   }
 
-  get<Response>(url: string, options = U.extraDefaultOptions) {
-    return this.requestJSON<Response>(url, {
+  get<Data>(url: string, options = U.defaultExtraOptions): Promise<Data> {
+    return this.requestJSON<Data>(url, {
       ...options,
       method: 'GET',
     });
   }
 
-  post<Response>(url: string, body?: unknown, options = U.extraDefaultOptions) {
-    return this.requestJSON<Response>(url, {
+  post<Data>(url: string, body?: unknown, options = U.defaultExtraOptions): Promise<Data> {
+    return this.requestJSON<Data>(url, {
       ...options,
       body: U.getBody(body),
       method: 'POST',
     });
   }
 
-  put<Response>(url: string, body?: unknown, options = U.extraDefaultOptions) {
-    return this.requestJSON<Response>(url, {
+  put<Data>(url: string, body: unknown, options = U.defaultExtraOptions): Promise<Data> {
+    return this.requestJSON<Data>(url, {
       ...options,
       body: U.getBody(body),
       method: 'PUT',
     });
   }
 
-  patch<Response>(url: string, body: unknown, options = U.extraDefaultOptions) {
-    return this.requestJSON<Response>(url, {
+  patch<Data>(url: string, body: unknown, options = U.defaultExtraOptions): Promise<Data> {
+    return this.requestJSON<Data>(url, {
       ...options,
       body: U.getBody(body),
       method: 'PATCH',
     });
   }
 
-  delete(url: string, options = U.extraDefaultOptions) {
+  delete(url: string, options = U.defaultExtraOptions): Promise<void> {
     return this.requestJSON<void>(url, {
       ...options,
       method: 'DELETE',
+    });
+  }
+
+  send(url: string, file: string | FormData, options: T.HttpOptions): Promise<void> {
+    return this.request(url, {
+      ...options,
+      body: file,
+      method: 'POST',
     });
   }
 }

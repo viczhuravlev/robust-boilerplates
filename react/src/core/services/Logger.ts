@@ -3,19 +3,19 @@
 type Message = string | number | Record<string, unknown>;
 
 export class Logger {
-  static info(title: string, message: Message): void {
-    console.info('[INFO]', title, message);
+  static info(message: Message): void {
+    console.info('[INFO]', message);
   }
 
-  static log(title: string, message: Message): void {
-    console.log('[LOG]', title, message);
+  static log(message: Message): void {
+    console.log('[LOG]', message);
   }
 
-  static warn(title: string, message: Message): void {
-    console.warn('[WARNING]', title, message);
+  static warn(message: Message): void {
+    console.warn('[WARNING]', message);
   }
 
-  static error(title: string, message: Message): void {
-    console.error('[ERROR]', title, message);
+  static error(message: Message): void {
+    console.error('[ERROR]', message);
   }
 }
