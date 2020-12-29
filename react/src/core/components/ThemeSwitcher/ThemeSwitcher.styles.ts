@@ -1,6 +1,8 @@
 import { styled } from '@linaria/react';
 
-export const SwitchButton = styled.span`
+import { Emoji } from '../Emoji';
+
+export const SwitchButton = styled(Emoji)`
   position: relative;
 
   display: inline-block;

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
-import * as Theme from '@/utils/theme';
+import { Theme } from '@core/utils';
 
 import * as T from './ThemeSwitcher.types';
 import * as S from './ThemeSwitcher.styles';
@@ -20,11 +20,10 @@ function ThemeSwitcher(props: T.ThemeSwitcherProps) {
 
   return (
     <S.SwitchButton
-      role="img"
+      label="Moon"
       onClick={onSwitchOnThemeClick}
       className={className}
       data-moon={isLight ? '🌑' : '🌕'}
-      aria-label="Moon"
     >
       {isLight ? '🌓' : '🌗'}
     </S.SwitchButton>
