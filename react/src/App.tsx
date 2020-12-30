@@ -1,27 +1,18 @@
-import React, { Suspense, StrictMode } from 'react';
+import React, { Suspense } from 'react';
 import { hot } from 'react-hot-loader/root';
 
-const MainPage = React.lazy(() => import('./pages/MainPage'));
+import { Loader } from '@core/components';
 
-function Loader() {
-  return <>Loading ...</>;
-}
-
-function Router() {
-  return (
-    <>
-      <MainPage />
-    </>
-  );
-}
+import AppRouter from '@core/AppRouter';
+import AppProviders from '@core/AppProviders';
 
 function App() {
   return (
-    <StrictMode>
-      <Suspense fallback={<Loader />}>
-        <Router />
+    <AppProviders>
+      <Suspense fallback={<Loader isContainer />}>
+        <AppRouter />
       </Suspense>
-    </StrictMode>
+    </AppProviders>
   );
 }
 
