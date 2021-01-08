@@ -1,0 +1,20 @@
+doctype html
+html.no-js(lang='en')
+    head
+        block title
+            title Default title
+        include ../base/_head
+    body
+        <!--[if lt IE 10]>
+        div.browserupgrade
+            | You are using an
+            strong outdated
+            |  browser. Please
+            a(href='http://browsehappy.com/') upgrade your browser
+            |  to improve your experience.
+        <![endif]-->
+
+        div.wrapper
+            block pagecontent
+
+        script(type="text/javascript" src="./js/script.min.js")
