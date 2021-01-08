@@ -1,5 +1,3 @@
-![GitHub package.json version](https://img.shields.io/github/package-json/v/viczhuravlev/gramr-ui?style=plastic)
-
 # 🔵 Robust React Application
 
 ## Advantages

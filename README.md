@@ -6,6 +6,7 @@ The repository is created to use as starting point to build something or to just
 
 ### Boilerplate
 
+- ⚪ [Native Application](native)
 - 🔵 [React Application](react)
 
 ## License
