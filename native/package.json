@@ -9,6 +9,8 @@
     "dev:server": "gulp connect"
   },
   "devDependencies": {
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
     "del": "6.0.0",
     "gulp": "4.0.2",
     "gulp-autoprefixer": "7.0.1",
@@ -21,6 +23,7 @@
     "gulp-pug": "4.0.1",
     "gulp-sass": "4.1.0",
     "gulp-uglify": "3.0.2",
-    "gulp.spritesmith": "6.11.0"
+    "gulp.spritesmith": "6.11.0",
+    "husky": "4.3.7"
   }
 }
