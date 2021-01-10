@@ -24,7 +24,7 @@
 ## Browser Support:
 
 The polyfills are customized, and you can change the settings to suit your needs.
-By default, the project doesn't support internet explorer, but can be configured for this (see the [polyfills](/docs/POLYFILLS.md), point 4).
+By default, the project doesn't support internet explorer, but can be configured for this (see the [polyfills](./docs/POLYFILLS.md), point 4).
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -48,9 +48,9 @@ By default, the project doesn't support internet explorer, but can be configured
 
 ## Documentation
 
-- [Setup](/docs/SETUP.md)
+- [Setup](./docs/SETUP.md)
 - Configuration
-  - [Polyfills](/docs/POLYFILLS.md)
+  - [Polyfills](./docs/POLYFILLS.md)
 
 ## License
 
