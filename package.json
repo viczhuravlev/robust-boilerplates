@@ -1,0 +1,9 @@
+{
+  "name": "robust-frontend-boilerplate",
+  "author": "Victor Zhuravlev <vzhuravlev15@gmail.com>",
+  "license": "GPL version 3",
+  "scripts": {
+    "manager": "cd manager-cli && yarn start",
+    "start": "yarn manager && rm -rf manager-cli"
+  }
+}
