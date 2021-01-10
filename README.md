@@ -1,4 +1,4 @@
-# Robust Frontend Boilerplate 🦾
+# Robust Frontend Boilerplate
 
 ## Description
 The repository is created to use as starting point to build something or to just test stuff.
