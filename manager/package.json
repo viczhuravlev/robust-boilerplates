@@ -1,0 +1,18 @@
+{
+  "name": "robust-frontend-manager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "start": "index.js"
+  },
+  "author": "Victor Zhuravlev <vzhuravlev15@gmail.com>",
+  "license": "GPL version 3",
+  "scripts": {
+    "start": "yarn && node index.js"
+  },
+  "devDependencies": {
+    "ora": "5.2.0",
+    "prettier": "2.2.1",
+    "prompts": "2.4.0"
+  }
+}
