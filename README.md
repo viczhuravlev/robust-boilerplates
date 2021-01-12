@@ -33,6 +33,10 @@ $ yarn start
 
 ### Step 3
 
+If you choose an empty repository, then you will need to check the installed dependencies to meet your needs.
+
+### Step 4
+
 Follow the setup instructions in the boilerplate of your choice.
 
 ## Contributing
