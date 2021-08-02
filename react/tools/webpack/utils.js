@@ -1,5 +1,10 @@
-function getFilename(isProduction, ext = 'js') {
-  return isProduction ? `${ext}/[name].[contenthash:8].${ext}` : `${ext}/[name].${ext}`;
+function getFilename(isProduction, folderName, ext) {
+  const folder = folderName ? `${folderName}` : '';
+  const extension = ext ? `.${ext}` : '[ext]';
+
+  return isProduction
+    ? `${folder}/[name].[contenthash:8]${extension}`
+    : `${folder}/[name]${extension}`;
 }
 
 module.exports = {

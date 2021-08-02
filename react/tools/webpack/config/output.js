@@ -9,7 +9,7 @@ const { getFilename } = require('../utils');
 
 module.exports = {
   path: buildPath,
-  filename: getFilename(isProduction),
+  filename: getFilename(isProduction, 'js', 'js'),
   publicPath: webpackEnv.PUBLIC_URL,
-  assetModuleFilename: 'images/[hash][ext]',
+  assetModuleFilename: getFilename(isProduction, 'images'),
 };

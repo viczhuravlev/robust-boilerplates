@@ -9,5 +9,5 @@ const { getFilename } = require('../utils');
 const { isProduction } = require('../../config/env');
 
 module.exports = new MiniCssExtractPlugin({
-  filename: getFilename(isProduction, 'css'),
+  filename: getFilename(isProduction, 'css', 'css'),
 });

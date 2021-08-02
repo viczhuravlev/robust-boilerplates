@@ -3,6 +3,9 @@ const loaderStyle = require('../loaders/style');
 const loaderBabel = require('../loaders/babel');
 const loaderLinaria = require('../loaders/linaria');
 
+const { isProduction } = require('../../config/env');
+const { getFilename } = require('../utils');
+
 module.exports = {
   rules: [
     {
@@ -15,15 +18,22 @@ module.exports = {
       use: [loaderStyle, loaderCSS],
     },
     {
-      test: /\.woff2$/,
+      test: /\.(jpe?g|png|gif|ico)$/,
+      type: 'asset',
+    },
+    {
+      test: /\.mp4$/,
       type: 'asset',
       generator: {
-        filename: 'fonts/[hash][ext]',
+        filename: getFilename(isProduction, 'video'),
       },
     },
     {
-      test: /\.(jpe?g|png|gif|ico)$/,
+      test: /\.(ttf|eot|woff|woff2)$/,
       type: 'asset',
+      generator: {
+        filename: getFilename(isProduction, 'fonts'),
+      },
     },
   ],
 };
