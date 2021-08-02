@@ -20,7 +20,7 @@ async function init() {
 
   💬 Hello! I will help you choose
   and prepare a project for you.
-`)
+`);
 
   const boilerplates = await withLoader('Loading boilerplates', getBoilerplates);
 
@@ -37,7 +37,7 @@ async function init() {
     {
       type: 'toggle',
       name: 'isEmpty',
-      message: 'Is empty repository??',
+      message: 'Is empty repository?',
       initial: false,
       active: 'yes',
       inactive: 'no',
@@ -66,7 +66,7 @@ async function init() {
   ✅ Done
 
 ====================================
-  `)
+  `);
 }
 
 init();
